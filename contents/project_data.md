@@ -25,3 +25,11 @@ Change it from:
 
 to:
 - `https://github.com/udacity/nd027-Data-Engineering-Data-Lakes-AWS-Exercises/tree/main/project/starter/accelerometer/landing`
+
+## Data Details
+
+> Include the following content just above the section heading that says **1. Customer Records**
+
+- 956 rows in the customer_landing table,
+- 81273 rows in the accelerometer_landing table, and
+- 28680 rows in the step_trainer_landing table.
