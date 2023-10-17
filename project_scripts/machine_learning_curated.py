@@ -35,24 +35,18 @@ AccelerometerTrusted_node1691518847319 = glueContext.create_dynamic_frame.from_c
     transformation_ctx="AccelerometerTrusted_node1691518847319",
 )
 
-# Script generated for node Join
-Join_node1691519238020 = Join.apply(
-    frame1=StepTrainerTrusted_node1691518756567,
-    frame2=AccelerometerTrusted_node1691518847319,
-    keys1=["sensorreadingtime"],
-    keys2=["timestamp"],
-    transformation_ctx="Join_node1691519238020",
-)
-
 # Script generated for node SQL Query
-SqlQuery81 = """
-select DISTINCT serialnumber, distancefromobject, sensorreadingtime, user, x, y, z
-from myDataSource
+SqlQuery0 = """
+select DISTINCT stt.serialnumber, distancefromobject, sensorreadingtime, user, x, y, z
+from stt JOIN at ON stt.sensorreadingtime = at.timestamp
 """
 SQLQuery_node1691520649781 = sparkSqlQuery(
     glueContext,
-    query=SqlQuery81,
-    mapping={"myDataSource": Join_node1691519238020},
+    query=SqlQuery0,
+    mapping={
+        "stt": StepTrainerTrusted_node1691518756567,
+        "at": AccelerometerTrusted_node1691518847319,
+    },
     transformation_ctx="SQLQuery_node1691520649781",
 )
 

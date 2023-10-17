@@ -35,25 +35,19 @@ CustomerCurated_node1691435383648 = glueContext.create_dynamic_frame.from_catalo
     transformation_ctx="CustomerCurated_node1691435383648",
 )
 
-# Script generated for node Join
-Join_node1691417718087 = Join.apply(
-    frame1=CustomerCurated_node1691435383648,
-    frame2=StepTrainerLanding_node1691492674989,
-    keys1=["serialnumber"],
-    keys2=["serialnumber"],
-    transformation_ctx="Join_node1691417718087",
-)
-
-# Script generated for node Drop Fields Manually
-SqlQuery104 = """
-select DISTINCT serialnumber, sensorreadingtime, distancefromobject 
-from myDataSource
+# Script generated for node SQL Query
+SqlQuery0 = """
+select stl.* from stl
+join cc on stl.serialnumber = cc.serialnumber
 """
-DropFieldsManually_node1691497037355 = sparkSqlQuery(
+SQLQuery_node1697558341945 = sparkSqlQuery(
     glueContext,
-    query=SqlQuery104,
-    mapping={"myDataSource": Join_node1691417718087},
-    transformation_ctx="DropFieldsManually_node1691497037355",
+    query=SqlQuery0,
+    mapping={
+        "stl": StepTrainerLanding_node1691492674989,
+        "cc": CustomerCurated_node1691435383648,
+    },
+    transformation_ctx="SQLQuery_node1697558341945",
 )
 
 # Script generated for node Step Trainer Trusted
@@ -69,5 +63,5 @@ StepTrainerTrusted_node3.setCatalogInfo(
     catalogDatabase="stedi", catalogTableName="step_trainer_final_trusted"
 )
 StepTrainerTrusted_node3.setFormat("json")
-StepTrainerTrusted_node3.writeFrame(DropFieldsManually_node1691497037355)
+StepTrainerTrusted_node3.writeFrame(SQLQuery_node1697558341945)
 job.commit()
