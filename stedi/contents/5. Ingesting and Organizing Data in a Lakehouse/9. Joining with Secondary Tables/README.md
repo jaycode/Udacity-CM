@@ -30,10 +30,8 @@ Define:
 The Visual Graph should look similar to this (**we're not finished!**):
 
 - Data source type is Data Catalog (the accelerometer_landing table we created earlier)
-- Transform - SQL Query Node to join accelerometer and customer tables
+- Transform - Join Node to join accelerometer and customer tables
 - Data target defaulted to S3
-
-**Note:** You may use a Join Node instead but it sometimes does not work as expected when the parent sources have duplicates. On the other hand, the Join Node allows you to view the output schema right away, whereas with the SQL Query Node, you will need to run a data preview before you can view the output schema. More details on how to do this are provided below.
 
 ![Configure the Node](4-first_look.png)
 
@@ -44,17 +42,23 @@ We need the **Customer Trusted Zone Data Catalog datasource**. Click the Source 
 - Configure the AWS Glue Data Catalog datasource to point to the **Customer Trusted** table
 - Name the Node (**Customer Trusted Zone**)
 
-**Note:** You may use an Amazon S3 Node instead, but a Data Catalog Node is more consistent and you would make use of the meta data from the table you have created earlier.
+**Note:** You may use an Amazon S3 Node instead, but a Data Catalog Node is more consistent and you would make use of the meta data from the table you have created earlier (at the end of the **Use Glue Catalog to Query a Landing Zone** page).
 
-- In your Join Customer Node, add the Customer Trusted Zone Node as an additional parent
-- Set SQL aliases for your input sources
-- Update the SQL query to perform an inner join between the two tables
+In your Join Customer Node, add the **Customer Trusted Zone** Node as an additional parent
 
-![SQL Query Node Settings](6-join.png)
+![Join Node parents](additional_parent.png)
 
-Congratulations! You have created a join that will automatically drop Accelerometer rows unless they can be joined to a customer record in the Trusted Zone:
+Click Add Condition
 
-![The Visual ETL so far](7-almost_done.png)
+![Add Condition](add_condition.png)
+
+Choose the join fields you identified earlier to join accelerometer and customer
+
+![Join Fields](join_fields.png)
+
+Congratulations! You have created a join that will automatically drop Accelerometer rows unless they can be joined to a customer record in the **Trusted Zone**:
+
+![The Visual ETL so far](joined.png)
 
 ## Accelerometer Trusted Zone
 
@@ -66,33 +70,23 @@ Congratulations! You have created a join that will automatically drop Accelerome
 - Pick the appropriate database
 - Table name **accelerometer_trusted**
 
-### Glue Table
-In the previous exercises, we used the Glue Console and the Athena Query editor to define a Glue Table. In this exercise, the Accelerometer Trusted Zone table is once again created via the Glue Console.
-
 ### Previewing the output schema
 
-On the bottom pane, you may see two tabs, Data preview and Output schema. The former allows you to run the Glue Job with 20 sample rows, while the latter displays the output schema of the selected node.
+On the bottom pane, you may see two tabs, **Data preview** and **Output schema**. The former allows you to run the Glue Job with some sample rows and the latter displays the output schema of the selected node.
 
-There's a caveat, though: the output schema feature does not work with the SQL Query Node. To workaround this, run a data preview, then click the **Use datapreview schema** button in the Output schema tab.
-
-You should then see the generated schema, notice the fields from **both** tables appear
+Click output schema to see the generated schema, notice the fields from **both** tables appear
 
 ![Generated Schema](8-datapreview_schema.png)
 
-Update your SQL Query node to choose only the fields from Accelerometer Trusted
+> The rest of the content should be the same, but update the images
 
-```
-select al.*
-from al join ct on al.user = ct.email
-```
+![Drop Fields](dropfields.png)
 
-![Finished Job](9-finished.png)
-
-Click **Save** and then click **Run**
+![Completed Glue Job](final.png)
 
 ![Save and Run](10-save_run.png)
 
-After the job successfully runs, a new Glue Table should appear in the Athena query editor.
+> Change 2: Add the following at the bottom of the page
 
 When running the COUNT(*) query, you should get 40981 rows
 

@@ -89,6 +89,20 @@ Now that you see results, you can use any desired SQL query parameters further r
 
 ## Configure a Glue Job to generate a table definition automatically
 
-In the exercise from a previous lesson, you have created the customer_trusted table by running a Glue Job that gets data from an S3 bucket. Notice that the table definition is created automatically by that Glue Job:
+In the exercise from a previous lesson, you have created `customer/trusted/*` data files in your S3 bucket by running a Glue Job.
+
+Revisit the `customer_landing_to_trusted` Glue Job and update the *Data Catalog update options* of the Customer Trusted Node to **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**. As previously mentioned, by doing this, the Glue Job will create a table and update the meta data on subsequent runs.
+
+Your Customer Trusted Node should look like this
+
+![Customer Trusted Node Settings](14-customer_trusted_settings.png)
+
+Then, **Go to your S3 console and delete the existing customer/trusted/** directory. This is needed so we don't end up with duplicate data files since **Glue Jobs do not delete existing files**.
+
+Once done, **save** and **run** the Glue Job.
+
+Once completed, you will have a customer_trusted table in Athena. Notice that the table definition is created automatically by that Glue Job:
 
 ![Table definition of customer_trusted table](13-customer_trusted.png)
+
+**Note:** In all subsequent Glue Jobs, use the **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions** setting as this is one of the course project's requirements.

@@ -26,17 +26,13 @@ You can use either S3 or Glue Data Catalog as your data source, but the Glue Dat
 - Custom SQL -> SQL Query
 - Detect PII -> Detect Sensitive Data
 
-> Change 4: Add the following note under the list of nodes in the **Transform** section.
-
-As of the time of writing, transform nodes other than the **SQL Query** node may sometimes produce inconsistent results, especially when the parent nodes have duplicates. We suggest using the **SQL Query** node whenever possible.
-
-> Change 5: Replace the content of the **Create a Spark Job with Glue Studio** section, right after the first image:
+> Change 4: Replace the content of the **Create a Spark Job with Glue Studio** section, right after the first image:
 
 Select either **ETL Jobs** or **Visual ETL** from the Glue Studio Menu
 
 ![AWS Glue Studio Menu](2-menu.png)
 
-> Change 6: Replace the **Privacy Filter** section with the following:
+> Change 5: Replace the **Privacy Filter** section with the following:
 
 ## Privacy Filter
 
@@ -48,25 +44,38 @@ Click on the `+` button, then pick **Amazon S3** from the **Source** tab
 
 *Under Node properties, name the Data source appropriately, for example: Customer Landing or Customer Raw.*
 
-![Rename the source node appropriately](4-privacy_filter-2.png)
+![Customer Data Source (Landing Zone)](4-privacy_filter-2.png)
 
-For the **transformation,** select the **SQL Query** option. In this node, write a query to filter on the *shareWithResearchAsOfDate* timestamp field, and configure it to filter out customers that have an empty *shareWithResearchAsOfDate*.
+For the **transformation**, select the **filter** option
 
-```
-select * from myDataSource
-where sharewithresearchasofdate is not NULL
-```
+![Filter Option](filter_option.png)
+
+Filter on the *shareWithResearchAsOfDate* timestamp field, and configure it to filter out customers that have an empty *shareWithResearchAsOfDate*.
 
 *Name the Transform appropriately, for example: Share With Research*
 
 ![Privacy filtering](5-privacy_filter-3.png)
 
+**Note:** You may notice something weird here. This Node does not actually filter out rows with NULL *shareWithResearchAsOfDate*! In this specific task, this Node still works fine somehow. Oddly enough, however, if you changed the condition to `shareWithResearchAsOfDate = 0` you will not get any row.
+
+When you're working on a project where you do need to filter out NULL values, you will need to use a **Transform - SQL Query** Node instead.
+
 For your destination choose an S3 location for customers who have chosen to share with research, or a **trusted zone**. The S3 bucket should be the bucket you created earlier. Any time you specify a folder that doesn't exist, S3 will automatically create it the first time data is placed there. Be sure to add the forward-slash on the end of the folder path.
 
-Choose **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**. By doing this, Glue Job will update the meta data on subsequent runs. Note, however, that **Glue Jobs does not delete any data stored in the S3 bucket. You will need to manually delete the files when you need to re-run your Glue Jobs.**
+![Customer Data Target (Trusted Zone)](6-privacy_filter-4.png)
 
-Optionally, you may also pick a database and table name. *You will learn more about Glue database in the next sub-section of this course.*
+**Note:** In this course's project, you will need to create tables from your S3 files. To do this quickly, you will later revisit this Glue Job and change the option to **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**. By doing this, the Glue Job will create a table and update the meta data on subsequent runs.
 
-![privacy filter 4](6-privacy_filter-4.png)
+**Important!** Glue Jobs **does not** delete any data stored in the S3 bucket. You will need to **manually delete the files when you need to re-run your Glue Jobs.**
 
-> Change 7: Remove section **Extract and Load more Customer Data** (we only have one customer data file and the recursive flag is going to be explained in the next page).
+*You will learn more about Glue database in the next sub-section of this course.*
+
+### Save and Run the Job
+
+You will notice the red triangle at the top of the screen saying "**Job has not been saved**."
+
+Click the Save button, then click Run:
+
+![Save and Run the Job](7-save_run.png)
+
+> Change 6: Remove section **Extract and Load more Customer Data** (we only have one customer data file and the recursive flag is going to be explained in the next page).

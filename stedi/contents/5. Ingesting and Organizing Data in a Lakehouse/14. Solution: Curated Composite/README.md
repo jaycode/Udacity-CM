@@ -1,12 +1,13 @@
 > Replace the entire content with the following.
 
-Here is how the final Glue Job may look like, along with updated parts:
+- You will notice the Drop Fields Node is configured to drop the accelerometer fields.
+- Also the final CustomerCurated Node is outputing to a new S3 path for customer curated data.
+
+Here is how the final Glue Job may look like, with updated parts marked:
 
 ![Completed Glue Job and Updated Parts](1-completed.png)
 
-The query in the SQL Query Node could be as follows:
-
-![SQL Query Node](2-sql_query.png)
+![Join Node](2-join_node.png)
 
 And running the count query in Athena should give you 482 rows, the same as customer_trusted. That means all customers had recorded accelerometer data.
 
@@ -21,15 +22,8 @@ from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
-from awsglue import DynamicFrame
-
-
-def sparkSqlQuery(glueContext, query, mapping, transformation_ctx) -> DynamicFrame:
-    for alias, frame in mapping.items():
-        frame.toDF().createOrReplaceTempView(alias)
-    result = spark.sql(query)
-    return DynamicFrame.fromDF(result, glueContext, transformation_ctx)
-
+from awsglue.dynamicframe import DynamicFrame
+from pyspark.sql import functions as SqlFuncs
 
 args = getResolvedOptions(sys.argv, ["JOB_NAME"])
 sc = SparkContext()
@@ -52,19 +46,27 @@ AccelerometerLanding_node1698165620971 = glueContext.create_dynamic_frame.from_c
     transformation_ctx="AccelerometerLanding_node1698165620971",
 )
 
-# Script generated for node Join Customer
-SqlQuery0 = """
-select distinct ct.*
-from al join ct on al.user = ct.email
-"""
-JoinCustomer_node1698165687851 = sparkSqlQuery(
+# Script generated for node Join
+Join_node1698180789818 = Join.apply(
+    frame1=CustomerTrustedZone_node1698166718418,
+    frame2=AccelerometerLanding_node1698165620971,
+    keys1=["email"],
+    keys2=["user"],
+    transformation_ctx="Join_node1698180789818",
+)
+
+# Script generated for node Drop Fields
+DropFields_node1698180804989 = DropFields.apply(
+    frame=Join_node1698180789818,
+    paths=["timestamp", "user", "x", "y", "z"],
+    transformation_ctx="DropFields_node1698180804989",
+)
+
+# Script generated for node Drop Duplicates
+DropDuplicates_node1698183691869 = DynamicFrame.fromDF(
+    DropFields_node1698180804989.toDF().dropDuplicates(),
     glueContext,
-    query=SqlQuery0,
-    mapping={
-        "al": AccelerometerLanding_node1698165620971,
-        "ct": CustomerTrustedZone_node1698166718418,
-    },
-    transformation_ctx="JoinCustomer_node1698165687851",
+    "DropDuplicates_node1698183691869",
 )
 
 # Script generated for node Customer Curated
@@ -80,6 +82,6 @@ CustomerCurated_node1698165724731.setCatalogInfo(
     catalogDatabase="stedi", catalogTableName="customer_curated"
 )
 CustomerCurated_node1698165724731.setFormat("json")
-CustomerCurated_node1698165724731.writeFrame(JoinCustomer_node1698165687851)
+CustomerCurated_node1698165724731.writeFrame(DropDuplicates_node1698183691869)
 job.commit()
 ```
