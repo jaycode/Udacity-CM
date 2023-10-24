@@ -1,3 +1,6 @@
+> Change 1: Replace the code:
+
+```
 import sys
 from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
@@ -61,3 +64,4 @@ CustomerTrusted_node1698072645636.setCatalogInfo(
 CustomerTrusted_node1698072645636.setFormat("glueparquet")
 CustomerTrusted_node1698072645636.writeFrame(ShareWithResearch_node1698072481603)
 job.commit()
+```

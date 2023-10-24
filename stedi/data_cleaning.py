@@ -3,8 +3,8 @@ import json
 import os
 import glob
 
-INPUT_PATH = "../stedihumanbalanceanalyticsdata/"
-OUTPUT_PATH = "../cleaned_data/"
+INPUT_PATH = "../../stedihumanbalanceanalyticsdata/"
+OUTPUT_PATH = "../../cleaned_data/"
 
 settings = [{'input_path': INPUT_PATH + "customers/*.json",
              'output_path': OUTPUT_PATH + "customers/landing/"},
