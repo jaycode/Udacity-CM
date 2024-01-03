@@ -5,6 +5,8 @@ The actions in this step are covered in the **Azure Data Pipeline Components** l
 
 > Change 2: Add the following right below **5. Create master data tables and payroll transaction tables in Synapse Analytics workspace** before the first item.
 
+*Note: These tables are going to be the final tables produced by your pipeline.*
+
 - First, create an SQL database from the **Data** > **Workspace** menu:
 
   ![Create a database in the Workspace](createdb.png)
@@ -33,3 +35,7 @@ GO
 ```
 
 **Use the blob storage account name as applicable to you.** In the snippet above, `adlsnycpayroll` is the Data Lake Gen 2 storage name, and `dirstaging` is the name of the file system (container).
+
+> Change 4: Replace all instances of **mydlsfs20230413_mydls20230413_dfs_core_windows_net** with:
+
+dirstaging_adlsnycpayroll_dfs_core_windows_net
