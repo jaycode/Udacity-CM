@@ -40,29 +40,40 @@ Join_node1698180789818 = Join.apply(
 # Script generated for node Drop Fields
 DropFields_node1698180804989 = DropFields.apply(
     frame=Join_node1698180789818,
-    paths=["timestamp", "user", "x", "y", "z"],
+    paths=[
+        "serialnumber",
+        "sharewithpublicasofdate",
+        "birthday",
+        "registrationdate",
+        "sharewithresearchasofdate",
+        "customername",
+        "sharewithfriendsasofdate",
+        "email",
+        "lastupdatedate",
+        "phone",
+    ],
     transformation_ctx="DropFields_node1698180804989",
 )
 
 # Script generated for node Drop Duplicates
-DropDuplicates_node1698183691869 = DynamicFrame.fromDF(
+DropDuplicates_node1698183935006 = DynamicFrame.fromDF(
     DropFields_node1698180804989.toDF().dropDuplicates(),
     glueContext,
-    "DropDuplicates_node1698183691869",
+    "DropDuplicates_node1698183935006",
 )
 
-# Script generated for node Customer Curated
-CustomerCurated_node1698165724731 = glueContext.getSink(
-    path="s3://stedi-udacity/customer/curated/",
+# Script generated for node Accelerometer Trusted
+AccelerometerTrusted_node1698165724731 = glueContext.getSink(
+    path="s3://stedi-udacity/accelerometer/trusted/",
     connection_type="s3",
     updateBehavior="UPDATE_IN_DATABASE",
     partitionKeys=[],
     enableUpdateCatalog=True,
-    transformation_ctx="CustomerCurated_node1698165724731",
+    transformation_ctx="AccelerometerTrusted_node1698165724731",
 )
-CustomerCurated_node1698165724731.setCatalogInfo(
-    catalogDatabase="stedi", catalogTableName="customer_curated"
+AccelerometerTrusted_node1698165724731.setCatalogInfo(
+    catalogDatabase="stedi", catalogTableName="accelerometer_trusted"
 )
-CustomerCurated_node1698165724731.setFormat("json")
-CustomerCurated_node1698165724731.writeFrame(DropDuplicates_node1698183691869)
+AccelerometerTrusted_node1698165724731.setFormat("json")
+AccelerometerTrusted_node1698165724731.writeFrame(DropDuplicates_node1698183935006)
 job.commit()

@@ -24,25 +24,25 @@ job.init(args["JOB_NAME"], args)
 # Script generated for node Step Trainer Landing
 StepTrainerLanding_node1691492674989 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
-    table_name="step_trainer_final_landing",
+    table_name="step_trainer_landing",
     transformation_ctx="StepTrainerLanding_node1691492674989",
 )
 
 # Script generated for node Customer Curated
 CustomerCurated_node1691435383648 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
-    table_name="customer_final_curated",
+    table_name="customer_curated",
     transformation_ctx="CustomerCurated_node1691435383648",
 )
 
 # Script generated for node SQL Query
-SqlQuery0 = """
+SqlQuery123 = """
 select stl.* from stl
 join cc on stl.serialnumber = cc.serialnumber
 """
 SQLQuery_node1697558341945 = sparkSqlQuery(
     glueContext,
-    query=SqlQuery0,
+    query=SqlQuery123,
     mapping={
         "stl": StepTrainerLanding_node1691492674989,
         "cc": CustomerCurated_node1691435383648,
@@ -52,7 +52,7 @@ SQLQuery_node1697558341945 = sparkSqlQuery(
 
 # Script generated for node Step Trainer Trusted
 StepTrainerTrusted_node3 = glueContext.getSink(
-    path="s3://stedi-udacity/final_data/step_trainer/trusted/",
+    path="s3://stedi-udacity/step_trainer/trusted/",
     connection_type="s3",
     updateBehavior="UPDATE_IN_DATABASE",
     partitionKeys=[],
@@ -60,7 +60,7 @@ StepTrainerTrusted_node3 = glueContext.getSink(
     transformation_ctx="StepTrainerTrusted_node3",
 )
 StepTrainerTrusted_node3.setCatalogInfo(
-    catalogDatabase="stedi", catalogTableName="step_trainer_final_trusted"
+    catalogDatabase="stedi", catalogTableName="step_trainer_trusted"
 )
 StepTrainerTrusted_node3.setFormat("json")
 StepTrainerTrusted_node3.writeFrame(SQLQuery_node1697558341945)

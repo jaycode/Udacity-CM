@@ -24,25 +24,25 @@ job.init(args["JOB_NAME"], args)
 # Script generated for node Step Trainer Trusted
 StepTrainerTrusted_node1691518756567 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
-    table_name="step_trainer_final_trusted",
+    table_name="step_trainer_trusted",
     transformation_ctx="StepTrainerTrusted_node1691518756567",
 )
 
 # Script generated for node Accelerometer Trusted
 AccelerometerTrusted_node1691518847319 = glueContext.create_dynamic_frame.from_catalog(
     database="stedi",
-    table_name="accelerometer_final_trusted",
+    table_name="accelerometer_trusted",
     transformation_ctx="AccelerometerTrusted_node1691518847319",
 )
 
 # Script generated for node SQL Query
-SqlQuery0 = """
+SqlQuery215 = """
 select DISTINCT stt.serialnumber, distancefromobject, sensorreadingtime, user, x, y, z
 from stt JOIN at ON stt.sensorreadingtime = at.timestamp
 """
 SQLQuery_node1691520649781 = sparkSqlQuery(
     glueContext,
-    query=SqlQuery0,
+    query=SqlQuery215,
     mapping={
         "stt": StepTrainerTrusted_node1691518756567,
         "at": AccelerometerTrusted_node1691518847319,
@@ -52,7 +52,7 @@ SQLQuery_node1691520649781 = sparkSqlQuery(
 
 # Script generated for node S3 bucket
 S3bucket_node3 = glueContext.getSink(
-    path="s3://stedi-udacity/final_data/step_trainer/curated/",
+    path="s3://stedi-udacity/step_trainer/curated/",
     connection_type="s3",
     updateBehavior="UPDATE_IN_DATABASE",
     partitionKeys=[],
