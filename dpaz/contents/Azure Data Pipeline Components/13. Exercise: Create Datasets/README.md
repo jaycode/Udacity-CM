@@ -51,7 +51,7 @@ GO
 The above queries do two things:
 
 - Create an external file format called `SynapseDelimitedTextFormat` if it doesn't already exist. This file format will be used to read the data from storage directories.
-- Create an external data source called `extDataSource` if it desn't already exist. It reads data from a filesystem `synapsefilesystem1` in the storage account `synapsestorageacct1`. Please update the path according to your settings.
+- Create an external data source called `extDataSource` if it desn't already exist. It reads data from a container filesystem `synapsefilesystem1` in the storage account `synapsestorageacct1`. Please update the path according to your settings.
 
 **Note:** Make sure to pick the database you have just created in the previous step or your queries won't run. This applies for other Synapse Analytics queries as well.
 
