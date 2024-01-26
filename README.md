@@ -33,8 +33,9 @@ For example:
 
 <summary><b>Change 1:</b> Update this part of the content</summary>
 
-> Replace the this part:
-> *This is the part as exactly written on the page.*
+> Replace this text:
+>
+> *This is the part written on the page.*
 
 > with the following:
 
