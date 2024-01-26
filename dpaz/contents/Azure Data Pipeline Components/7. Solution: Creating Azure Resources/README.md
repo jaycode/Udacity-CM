@@ -46,7 +46,7 @@ Notes:
 </details>
 
 <details open>
-<summary></b>Change 5:</b> Replace the last sentece of CETAS description</summary>
+<summary></b>Change 5:</b> Replace the last sentence of CETAS description</summary>
 
 > *Existing description:*
 > ***CETAS creates external tables and exports the SELECT query results to a set of files in your storage account.***
