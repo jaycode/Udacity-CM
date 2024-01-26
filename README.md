@@ -4,8 +4,9 @@ Standardized formatting to propose content replacements.
 
 ## How to Use
 
-1. Go through each folder and see the changes in md files there.
-2. I put the image descriptions as image Alts. Look out for them either from inspect element or the Markdown Code directly. For example, this is how the text will show on the site:
+1. Go through each folder and apply the changes in their README.md files. See the **Folder Structure** and **Page Formatting** sections below for more details.
+2. The updates must be applied in the given order. An update depends on previous updates.
+3. I keep image descriptions as image Alts. Look out for them either from inspect element or the Markdown Code directly. For example, this is how the text will show on the site:
 
   ![image_desc](image_desc.png)
 
