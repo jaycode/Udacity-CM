@@ -2,8 +2,6 @@
 
 <summary><b>Change 1:</b> Right </b>above</b> the heading <span style="background:yellow">Creating a Synapse Analytics Workspace:</span>, add the following content:</summary>
 
-<div style="background: lightgreen">
-
 **Allowlist IP ...** link may not show in your Query Editor and you get the following message instead:
 
 ![Cannot login to SQL DB](error-need-public.png)
@@ -16,5 +14,4 @@ Then, enable public network access to your database server and add your computer
 
 ![Enable public network and Azure services access to your database server](login-ip-2.png)
 
-</div>
 </details>

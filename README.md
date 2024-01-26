@@ -22,9 +22,8 @@ Standardized formatting to propose content replacements.
 
 - Please see the raw code of this document to understand the code.
 - Each change is grouped in a collapsible section. Reasoning: They can be very long, so it's good to have a way to hide them when needed.
-- Start with `Change #`.
-- Quoted contents are explanations and the rest for updated site content.
-- What if we want to include actual quotes in the site content? Well, just escape the quote character (\>) directly then.
+- Each change starts with `Change #`.
+- Quoted + italic contents are explanations and the rest for updated site content.
 - **Ideally, all Markdown code of unquoted parts can be copied directly into the editor.**
 
 For example:
@@ -33,13 +32,15 @@ For example:
 
 <summary><b>Change 1:</b> Update this part of the content</summary>
 
-> Replace this text:
+> *Replace this text:*
 >
-> *This is the part written on the page.*
+> ***This is the part written on the page.***
 
-> with the following:
+> *with the following:*
 
-This is the new part.
+This is the new content.
+
+> This quoted text is a part of the new content.
 
 </details>
 
