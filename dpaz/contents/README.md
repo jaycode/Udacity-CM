@@ -1,3 +1,14 @@
-Other unclear parts - Ideally, add some explanations in the course:
+# Overarching Changes
 
-1. What is the difference between Azure Synapse and Data Factory? Why do they both have Linked services?
+Changes to be done throughout all pages.
+
+<details open>
+
+<summary><b>Change 1:</b> Titles are duplicated</summary>
+
+Most pages have duplicated titles e.g.
+
+![Duplicated titles](duplicate-titles.png)
+
+
+</details>

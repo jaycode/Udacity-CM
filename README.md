@@ -2,6 +2,17 @@
 
 Standardized formatting to propose content replacements.
 
+## How to Use
+
+1. Go through each folder and see the changes in md files there.
+2. I put the image descriptions as image Alts. Look out for them either from inspect element or the Markdown Code directly. For example, this is how the text will show on the site:
+
+![image_desc](image_desc.png)
+
+That image is available here:
+
+![image_desc1](image_desc1.png)
+
 ## Folder Structure
 
 - The pages are referenced by folders eg. `Course Title (shortened e.g. 'dpa') > Lesson Title > Page Title > Readme.md`.
@@ -12,7 +23,7 @@ Standardized formatting to propose content replacements.
 - Please see the raw code of this document to understand the code.
 - Each change is grouped in a collapsible section. Reasoning: They can be very long, so it's good to have a way to hide them when needed.
 - Start with `Change #`.
-- Use <span style="background: yellow">yellow highlights</span> to mark existing site content and <span style="background: lightgreen;"> lightgreen highlights</span> to wrap updated site content.
+- Use <span color="orange">yellow color</span> to mark existing site content and <span color="green">green color</span> to wrap updated site content.
 - **Ideally, all content inside green highlights can be copied directly into the editor.**
 
 For example:
@@ -23,7 +34,7 @@ For example:
 
 Replace the this part:
 
-<div style="background: yellow">
+<div color="orange">
 
 This is the part as exactly written on the page.
 
@@ -31,7 +42,7 @@ This is the part as exactly written on the page.
 
 with the following:
 
-<div style="background: lightgreen;">
+<div color="orange">
 
 This is the new **part**.
 
@@ -46,3 +57,6 @@ This is the new **part**.
     <details open>
     <summary><b>Change 1:</b> Both items in the numbered list are <code>1.</code>.</summary>
     </details>
+
+
+

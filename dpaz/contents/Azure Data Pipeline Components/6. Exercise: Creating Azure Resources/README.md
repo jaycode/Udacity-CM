@@ -1,0 +1,16 @@
+<details open>
+<summary><b>Change 1:</b> Replace the entire page with the following content.</summary>
+
+<div style="background: lightgreen">
+In this exercise, you'll create the Azure resources necessary to build data pipelines throughout the course. 
+
+You'll need Contributor, Data Factory Contributor and Storage Blob Contributor roles on the Resource Group. These roles have already been granted to your Udacity federated account.
+
+**Make sure you create all your resources within the same Azure region.**
+
+**Step 1.** Create an Azure SQL Database in Azure Portal. This database will used throughout this course for various exercises.
+
+**Select Sample database under Additional settings.** This database will be used throughout this course. Use Query Editor in the Azure Portal or SQL Server Management Studio to make sure the sample database is created, and you can query the tables SalesOrderHeader and Customer from the `SalesLT` schema.
+</div>
+
+</details>
