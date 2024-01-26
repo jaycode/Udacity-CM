@@ -7,11 +7,11 @@ Standardized formatting to propose content replacements.
 1. Go through each folder and see the changes in md files there.
 2. I put the image descriptions as image Alts. Look out for them either from inspect element or the Markdown Code directly. For example, this is how the text will show on the site:
 
-![image_desc](image_desc.png)
+  ![image_desc](image_desc.png)
 
-That image is available here:
+  That image is available here:
 
-![image_desc1](image_desc1.png)
+  ![image_desc1](image_desc1.png)
 
 ## Folder Structure
 
@@ -23,8 +23,9 @@ That image is available here:
 - Please see the raw code of this document to understand the code.
 - Each change is grouped in a collapsible section. Reasoning: They can be very long, so it's good to have a way to hide them when needed.
 - Start with `Change #`.
-- Use <span color="orange">yellow color</span> to mark existing site content and <span color="green">green color</span> to wrap updated site content.
-- **Ideally, all content inside green highlights can be copied directly into the editor.**
+- Quoted contents are explanations and the rest for updated site content.
+- What if we want to include actual quotes in the site content? Well, just escape the quote character (\>) directly then.
+- **Ideally, all Markdown code of unquoted parts can be copied directly into the editor.**
 
 For example:
 
@@ -32,31 +33,19 @@ For example:
 
 <summary><b>Change 1:</b> Update this part of the content</summary>
 
-Replace the this part:
+> Replace the this part:
+> *This is the part as exactly written on the page.*
 
-<div color="orange">
+> with the following:
 
-This is the part as exactly written on the page.
-
-</div>
-
-with the following:
-
-<div color="orange">
-
-This is the new **part**.
-
-</div>
+This is the new part.
 
 </details>
 
 ### Additional Notes
 
-- `<div>` elements can be used to wrap paragraphs, but add a space before and after the Markdown content.
+- I initially tried using colors and background colors but neither was supported by GitHub Markdown.
 - Markdown is not supported inside `<summary>` tags so use HTMLs. For example, `<code>` tags can be used to emulate single backticks e.g.
     <details open>
     <summary><b>Change 1:</b> Both items in the numbered list are <code>1.</code>.</summary>
     </details>
-
-
-
