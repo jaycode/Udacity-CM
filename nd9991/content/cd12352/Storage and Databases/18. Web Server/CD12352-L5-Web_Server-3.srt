@@ -1,0 +1,27 @@
+Now that we've set up engine x on our server, let's update this page.
+
+Nothing fancy here, let's just change the displayed text.
+
+Go back to the template, then write down the script to update the index page that is located in this directory.
+
+This script creates an index.html file and moves it to the var/www/html directory.
+
+This is the directory that hosts web pages by default in engine x.
+
+At the end, reload engine x.
+
+In this code, I also removed all the other index files in that particular directory. And only after that, I copied over the new index.html file.
+
+One thing to note here is that we can't just update the template, but we need to delete the old one and recreate this whole cloud formation template.
+
+The user data script will not be run after a cloud formation update.
+
+In real-world application development, this whole server redeployment process is generally automated.
+
+After running the creation script again we can check out CloudFormation to see that the creation is complete.
+
+From this page, we can go to the load balancer page and just get the DNS again from there to copy and open on a browser.
+
+And there you go.
+
+We've updated the page.

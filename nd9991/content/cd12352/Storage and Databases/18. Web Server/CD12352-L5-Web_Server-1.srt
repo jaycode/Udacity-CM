@@ -1,0 +1,21 @@
+Let's proceed with setting up our web server.
+
+I'll now make some very minimal changes to get our Engine X server set up.
+
+First of all, move the user data, the script here, from the starter file into your launch template data property. 
+
+Right here
+
+And also change the Image ID right here to the latest Ubuntu AMI.
+
+Engine X uses port 80 by default, while we use port 3000
+
+So let's change these two settings to port 80.
+
+And also the port property of the target group for the load balancer right here.
+
+Before pushing your update to Amazon, don't forget to set up your AWS configuration.
+
+I prefer to set it up with a custom profile rather than using the default one, but feel free to do otherwise.
+
+Throughout the rest of the lesson, I'll be using the "udacity" profile. Also, I use the credentials of the user I created on the console rather than the ones belonging to the federated user account.

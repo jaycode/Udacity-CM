@@ -1,0 +1,33 @@
+After setting up both the template and the profile, I ran the script.
+
+And I got this message indicating that the script ran successfully.
+
+Let's take a quick peek at the create udagram shell script.
+
+So this script essentially accepts an argument which will then be passed over to the profile variable when the parameter is set.
+
+The code that sets it up is right here.
+
+Now let's move on to the last section of the code.
+
+If the profile variable is not empty, it is going to pass it into the cloud formation create stack command right here.
+
+Otherwise, it will run the command without the profile variable.
+
+As a fun challenge, you may improve this part to reduce the duplicated code. 
+
+Now let's see the cloud formation page.
+
+Click refresh to see the current state.
+
+Okay, so it's finished running. 
+
+Now that we can access it, go to resources, and access your load balancer page by clicking its physical ID.
+
+Click on this checkbox right before our newly created Load Balancer.
+
+What we want to get from this page is the DNS name.
+
+Now that we have the DNS name in our clipboard, I can pass it into the browser URL address to get this page.
+
+Next, you need to update the text to meet one of the requirements in the rubric.

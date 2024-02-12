@@ -1,0 +1,7 @@
+Now that you're in your EC2 instance, you may debug your server.
+
+For example, you can run this command to check if the engine x server is running.
+
+You may also check if the HTML file is as expected by printing out its content.
+
+And there are many other things you can do to debug your server from here.

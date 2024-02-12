@@ -1,0 +1,27 @@
+Now that you got the SSM plugin installed, let's try to use it to connect to an EC2 server behind a private subnet.
+
+But before that, let's try to set up or configure a profile.
+
+As I mentioned earlier, I prefer to create a custom profile that uses the credentials of a new user I created on the AWS console.
+
+When entering the default region name, pick the region associated with your account. It might be different from the one shown in this video.
+
+Now that we've got the profile set, let's try to use it to connect to the server.
+
+You may use the SSM start session option from the AWS CLI.
+
+Add the target option.
+
+And here you need to paste the ID of the EC2 instance.
+
+On your AWS console, go to the EC2 page.
+
+Click instances.
+
+Then copy the ID of the instance created by the Auto Scaling Group.
+
+Now let's paste it here.
+
+Don't forget to include the profile option.
+
+And there you go, you are connected to the server.

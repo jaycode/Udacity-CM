@@ -1,0 +1,13 @@
+To install SSM, let's follow the instructions here on this page.
+
+First, let's copy this command to download SSM plugin.
+
+Paste it on your workspace.
+
+After completing the download, copy the next command.
+
+And again, go back to your workspace, paste, and run.
+
+let's verify our installation by running the AWS SSM command without any parameters.
+
+When you see this usage instruction message, that means the installation is successful.
