@@ -4,7 +4,7 @@
 > Replace `kubectl svc` with:
 
 ```
-kubectl get pods
+kubectl get svc
 ```
 
 </details>
