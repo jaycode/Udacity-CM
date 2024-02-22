@@ -1,0 +1,27 @@
+I want to find out the pod that I will update by running the get pods command.
+
+Now let's read the logs of this pod.
+
+To do this, I can simply do the cube CTL logs command, followed by the name of the pod.
+
+We are now going to add some text to this log, just to see if we can update our docker image.
+
+In the code of the application, I will just add a hello message here.
+
+Okay, when this works, you should see the hello message we just added around here in the log.
+
+Before updating the docker image, let's make sure our shell is connected to mini cube's environment.
+
+And then, we may now rebuild the docker image.
+
+Now all we need to do is to delete the existing pod so that kubernet will recreate a pod with our new docker image.
+
+Start by looking at the list of pods again. As before, we are using the cube CTL get pods command for this.
+
+Copy the name, and paste it to the delete pods command.
+
+Right after the pod is deleted, kubernet should almost instantly recreate another pod.
+
+Now let's print out the logs of this newly created pod to see if the added message is there.
+
+And there you go! The message is stored in the log.

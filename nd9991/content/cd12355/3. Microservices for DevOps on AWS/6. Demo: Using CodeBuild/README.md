@@ -63,6 +63,42 @@ The runtime operating system image, this might differ based off of your own proj
 
 Environment variables are set during project creation to replace placeholders in the build spec file. The IAM role created for CodeBuild needs adjustments to grant permissions for ECR access.
 
+
+## Important: Add permissions to update ECR to the newly created role
+
+Go to the IAM console > Roles, then find the role you have created when creating the CodeBuild project.
+
+Under the *Permissions* tab, click on **Add Permissions** then choose **Create inline policy**. Choose **JSON**, then replace the policy with the following:
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+			    "ecr:*"
+			],
+			"Resource": [
+			    "*"
+			]
+		}
+	]
+}
+```
+
+![The newly entered policy ensures the CodeBuild project has full access to ECR](new-policies.png)
+
+Give an appropriate name to this policy e.g. **FullECRAccess** and then click on **Create Policy**.
+
+![The final page before creating the policy](create-policy.png)
+
 ## Build Execution and Results
 
+Go back to the CodeBuild project you have created, then click on **Start Build**.
+
 Starting the build transforms code into a Docker image, which is then pushed to ECR. The process concludes with verifying the Docker image in the ECR repository, tagged with the version specified in the environment variables.
+
+When the build is completed, you should see a build status "Succeeded" at the top of the project page.
+
+![A screenshot showing a succeeded build status](build-completed.png)
