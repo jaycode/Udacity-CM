@@ -1,0 +1,3 @@
+A dashboard layout with its sections divided by red lines. It has four annotated sections: Title text, Controls, and Text alignment. Title text points to the area in the dashboard where section titles are positioned, in this case "High-level KPIs" at the top of the dashboard and "Campaign Spend" just a bit below it. These two titles are aligned vertically. The controls section is the area at the top of this dashboard. The Text alignment refers to how the table texts are similarly right-aligned to give the table a more pronounced look.
+
+The image shows us a zoomed-in section that shows the alignment of the High level KPI title at the top and the Campaign Spend title underneath it. The emphasis is on how both of them are positioned along the same vertical axis.

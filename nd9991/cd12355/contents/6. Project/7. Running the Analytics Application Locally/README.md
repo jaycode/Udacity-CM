@@ -19,22 +19,24 @@ There are multiple ways to set environment variables in a command line session. 
 If we set the environment variables by exporting them, it would look like the following:
 
 ```bash
-export DB_USERNAME=postgres
+export DB_USERNAME=myuser
 export DB_PASSWORD=${POSTGRES_PASSWORD}
 export DB_HOST=127.0.0.1
 export DB_PORT=5433
-export DB_NAME=postgres
+export DB_NAME=mydatabase
+```
+
+```py
 python app.py
 ```
 
-**Important:** Before running the code above, don't forget to set up port forwarding for the database service and the `POSTGRES_PASSWORD` environment variable as mentioned on the previous page. To be more specific, these are the commands:
+**Important:** Before running the code above, don't forget to set up port forwarding for the database service and the `POSTGRES_PASSWORD` environment variable as mentioned on the previous page. Here are the commands again:
 
 ```bash
-# To set up port forwarding
-kubectl port-forward --namespace default svc/<SERVICE_NAME>-postgresql 5433:5432 &
-
-# To export the password
-export POSTGRES_PASSWORD=$(kubectl get secret --namespace default <SERVICE_NAME>-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
+# Set up port forwarding - note that you can use `svc` or `service` in the path
+kubectl port-forward svc/postgresql-service 5433:5432 &
+# Export the password.
+export POSTGRES_PASSWORD=mypassword
 ```
 
 **Note:** When working with Kubernetes, you will set these environment variables via the deployment YAML file.
@@ -43,16 +45,14 @@ export POSTGRES_PASSWORD=$(kubectl get secret --namespace default <SERVICE_NAME>
 
 You may run these commands in another terminal window:
 
-- Generate a report for check-ins grouped by dates
-
-  ```bash
-  curl <BASE_URL>/api/reports/daily_usage
-  ```
-- Generate a report for check-ins grouped by users
-
-  ```bash
-  curl <BASE_URL>/api/reports/user_visits
-  ```
+* Generate a report for check-ins grouped by dates
+```bash
+curl <BASE_URL>/api/reports/daily_usage
+```
+* Generate a report for check-ins grouped by users
+```bash
+curl <BASE_URL>/api/reports/user_visits
+```
 
 In this case, since the code is run directly on the local computer rather than through Docker, the BASE_URL is `127.0.0.1:5153`. The port `5153` is specified in the `app.py` script.
 
