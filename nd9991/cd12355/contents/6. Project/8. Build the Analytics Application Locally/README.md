@@ -6,6 +6,21 @@ In the analytics/ directory:
 
 ### 1. Install Dependencies
 
+Assuming you work on the workspace, you need to run the following commands before installing the requirements:
+
+```bash
+# Update the local package index with the latest packages from the repositories
+apt update
+
+# Install a couple of packages to successfully install postgresql server locally
+apt install build-essential libpq-dev
+
+# Update python modules to successfully build the required modules
+pip install --upgrade pip setuptools wheel
+```
+
+After that, you may run the following command to install all modules listed in `requirements.txt`.
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -20,7 +35,7 @@ If we set the environment variables by exporting them, it would look like the fo
 
 ```bash
 export DB_USERNAME=myuser
-export DB_PASSWORD=${POSTGRES_PASSWORD}
+export DB_PASSWORD=mypassword
 export DB_HOST=127.0.0.1
 export DB_PORT=5433
 export DB_NAME=mydatabase
@@ -30,13 +45,13 @@ export DB_NAME=mydatabase
 python app.py
 ```
 
-**Important:** Before running the code above, don't forget to set up port forwarding for the database service and the `POSTGRES_PASSWORD` environment variable as mentioned on the previous page. Here are the commands again:
+**Important:** Before running the code above, don't forget to set up port forwarding for the database service and the `POSTGRES_PASSWORD` environment variable as mentioned on the previous page. To be more specific, these are the commands:
 
 ```bash
-# Set up port forwarding - note that you can use `svc` or `service` in the path
-kubectl port-forward svc/postgresql-service 5433:5432 &
-# Export the password.
-export POSTGRES_PASSWORD=mypassword
+# Set up port forwarding - note that `svc` is a shorthand for `
+kubectl port-forward --namespace default svc/<SERVICE_NAME>-postgresql 5433:5432 &
+# Export the password. Replace 
+export POSTGRES_PASSWORD=$(kubectl get secret --namespace default <SERVICE_NAME>-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
 ```
 
 **Note:** When working with Kubernetes, you will set these environment variables via the deployment YAML file.
@@ -49,12 +64,15 @@ You may run these commands in another terminal window:
 ```bash
 curl <BASE_URL>/api/reports/daily_usage
 ```
+
 * Generate a report for check-ins grouped by users
 ```bash
 curl <BASE_URL>/api/reports/user_visits
 ```
 
 In this case, since the code is run directly on the local computer rather than through Docker, the BASE_URL is `127.0.0.1:5153`. The port `5153` is specified in the `app.py` script.
+
+![This is what you should see after running the above commands on another terminal tab.](terminal-output.png)
 
 ### 4. Dockerize the Application
 

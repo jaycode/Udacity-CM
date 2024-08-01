@@ -38,7 +38,37 @@ Any other Docker command you execute after running that command will now interac
 
 ### Update the deployment YAML files
 
-This is the part in a deployment YAML file so that it loads your local Docker image:
+#### 1. Replace LoadBalancer with NodePort
+
+Your everyday computers do not generally have a Load Balancer, so replace this part:
+
+```yaml
+spec:
+  type: LoadBalancer
+```
+
+with a NodePort type:
+
+```yaml
+spec:
+  type: NodePort
+```
+
+#### 2. Replace ECR Docker Image URI with a Local Docker Image path
+
+This is the part in a deployment YAML file that you need to update:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+      - name: coworking
+        image: <DOCKER_IMAGE_URI_FROM_ECR>
+```
+
+
+Update it to your local Docker image:
 
 ```yaml
 spec:
@@ -53,4 +83,14 @@ When you make changes to your Docker image, you may rebuild it, delete your acti
 
 [VIDEO]
 
-Instructions on the next two pages can be done either locally or via Amazon EKS.
+### Verify the Deployment
+
+To set up the port and give you the address from which you can access your application, you may run the following command (instead of `kubectl get svc`)
+
+```bash
+minikube service coworking
+```
+
+Here's an example of its output:
+
+![A sample output of `minikube service coworking`](minikube-service.png)
