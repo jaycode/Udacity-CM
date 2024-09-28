@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0910.0334                               -->
+<workbook original-version='18.1' source-build='2024.2.3 (20242.24.0910.0334)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='pcb_project_visuals' inline='true' name='federated.0unmcvc0u23whs1e1sxvm185skwo' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='pcb_project_visuals' name='textscan.1kdia0q0f68bdq18yffzv0irfb1x'>
+            <connection class='textscan' directory='C:/Users/teguh/w/cm/Udacity-CM/cd0232/a11y/CONUPDATE-3903' filename='pcb_project_visuals.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1kdia0q0f68bdq18yffzv0irfb1x' name='pcb_project_visuals.csv' table='[pcb_project_visuals#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Date' ordinal='0' />
+            <column datatype='integer' name='OT_Hours' ordinal='1' />
+            <column datatype='integer' name='Reg_Hours' ordinal='2' />
+            <column datatype='integer' name='Budget_Burn' ordinal='3' />
+            <column datatype='real' name='Target_Budget' ordinal='4' />
+            <column datatype='integer' name='Placement_Progress' ordinal='5' />
+            <column datatype='integer' name='Routing_Progress' ordinal='6' />
+            <column datatype='integer' name='TP_Coverage' ordinal='7' />
+            <column datatype='integer' name='DRC_Errors' ordinal='8' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1kdia0q0f68bdq18yffzv0irfb1x' name='pcb_project_visuals.csv' table='[pcb_project_visuals#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Date' ordinal='0' />
+            <column datatype='integer' name='OT_Hours' ordinal='1' />
+            <column datatype='integer' name='Reg_Hours' ordinal='2' />
+            <column datatype='integer' name='Budget_Burn' ordinal='3' />
+            <column datatype='real' name='Target_Budget' ordinal='4' />
+            <column datatype='integer' name='Placement_Progress' ordinal='5' />
+            <column datatype='integer' name='Routing_Progress' ordinal='6' />
+            <column datatype='integer' name='TP_Coverage' ordinal='7' />
+            <column datatype='integer' name='DRC_Errors' ordinal='8' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OT_Hours</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OT_Hours]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>OT_Hours</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Reg_Hours</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Reg_Hours]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Reg_Hours</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Budget_Burn</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Budget_Burn]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Budget_Burn</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Target_Budget</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Target_Budget]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Target_Budget</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Placement_Progress</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Placement_Progress]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Placement_Progress</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Routing_Progress</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Routing_Progress]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>Routing_Progress</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TP_Coverage</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TP_Coverage]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>TP_Coverage</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DRC_Errors</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DRC_Errors]</local-name>
+            <parent-name>[pcb_project_visuals.csv]</parent-name>
+            <remote-alias>DRC_Errors</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Budget Burn' datatype='integer' name='[Budget_Burn]' role='measure' type='quantitative' />
+      <column caption='DRC Errors' datatype='integer' name='[DRC_Errors]' role='measure' type='quantitative' />
+      <column caption='OT Hours' datatype='integer' name='[OT_Hours]' role='measure' type='quantitative' />
+      <column caption='Placement Progress' datatype='integer' name='[Placement_Progress]' role='measure' type='quantitative' />
+      <column caption='Reg Hours' datatype='integer' name='[Reg_Hours]' role='measure' type='quantitative' />
+      <column caption='Routing Progress' datatype='integer' name='[Routing_Progress]' role='measure' type='quantitative' />
+      <column caption='TP Coverage' datatype='integer' name='[TP_Coverage]' role='measure' type='quantitative' />
+      <column caption='Target Budget' datatype='real' name='[Target_Budget]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='pcb_project_visuals.csv' datatype='table' name='[__tableau_internal_object_id__].[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]' role='measure' type='quantitative' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/teguh/AppData/Local/Temp/TableauTemp/#TableauTemp_0tffmyz0o5f4b91349iuc0haqef1.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/27/2024 12:15:01 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Date</remote-alias>
+              <ordinal>0</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>OT_Hours</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[OT_Hours]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>OT_Hours</remote-alias>
+              <ordinal>1</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Reg_Hours</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Reg_Hours]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Reg_Hours</remote-alias>
+              <ordinal>2</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Budget_Burn</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Budget_Burn]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Budget_Burn</remote-alias>
+              <ordinal>3</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Target_Budget</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Target_Budget]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Target_Budget</remote-alias>
+              <ordinal>4</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Placement_Progress</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Placement_Progress]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Placement_Progress</remote-alias>
+              <ordinal>5</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Routing_Progress</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Routing_Progress]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Routing_Progress</remote-alias>
+              <ordinal>6</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>TP_Coverage</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[TP_Coverage]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>TP_Coverage</remote-alias>
+              <ordinal>7</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>DRC_Errors</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[DRC_Errors]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>DRC_Errors</remote-alias>
+              <ordinal>8</ordinal>
+              <family>pcb_project_visuals.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='pcb_project_visuals.csv' id='pcb_project_visuals.csv_FD23841B81D0437FAB5CF3163288BC5D'>
+            <properties context=''>
+              <relation connection='textscan.1kdia0q0f68bdq18yffzv0irfb1x' name='pcb_project_visuals.csv' table='[pcb_project_visuals#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='Date' ordinal='0' />
+                  <column datatype='integer' name='OT_Hours' ordinal='1' />
+                  <column datatype='integer' name='Reg_Hours' ordinal='2' />
+                  <column datatype='integer' name='Budget_Burn' ordinal='3' />
+                  <column datatype='real' name='Target_Budget' ordinal='4' />
+                  <column datatype='integer' name='Placement_Progress' ordinal='5' />
+                  <column datatype='integer' name='Routing_Progress' ordinal='6' />
+                  <column datatype='integer' name='TP_Coverage' ordinal='7' />
+                  <column datatype='integer' name='DRC_Errors' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Placement Graph'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='pcb_project_visuals' name='federated.0unmcvc0u23whs1e1sxvm185skwo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0unmcvc0u23whs1e1sxvm185skwo'>
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Placement Progress' datatype='integer' name='[Placement_Progress]' role='measure' type='quantitative' />
+            <column-instance column='[Placement_Progress]' derivation='Sum' name='[sum:Placement_Progress:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0unmcvc0u23whs1e1sxvm185skwo].[sum:Placement_Progress:qk]</rows>
+        <cols>[federated.0unmcvc0u23whs1e1sxvm185skwo].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{E573E01D-0B3C-4F84-B7E5-ACDEC99CD1CA}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='worksheet' maximized='true' name='Placement Graph'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0unmcvc0u23whs1e1sxvm185skwo].[mn:Date:ok]</field>
+            <field>[federated.0unmcvc0u23whs1e1sxvm185skwo].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{23DD946D-5601-4F02-A057-3A4223323373}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Placement Graph' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
